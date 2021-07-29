@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- logo -->
+    <link rel="icon" type="image/png" href="pics/logo.png"/>
+
+    <title>Gravity falls</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- style -->
+    <link rel="stylesheet" href="style.css">
+<!-- animations -->
+<link
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+ />
+<!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body style="background-color:black;">
+    <!-- header -->
+    <div class="container-fluid">
+      <div class="row" id="row">
+        <div class="col-md-3">
+            <img style="margin:20px;"width="205px" height="94.5px"src="pics/logo.png" alt="">
+        </div>
+        <div class="col-md-9">
+
+          <!-- burger drop -->
+          <div id="menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <!-- navbar -->
+          <div class="navbar-nav " style=" display:none;margin-top:60px; float:right;">
+            <style media="screen">
+              a:hover{
+                color:#d3531a;
+                border:none;
+              }
+              .current{
+                color:#d3531a;
+                border:none;
+                text-decoration:underline;
+                margin-right:10px;
+                background-color:inherit;
+                border-radius:4px;
+                padding:5px;
+              }
+            </style>
+            <a class="nav-item nav-link current disabled" href="#">Home </a>
+            <a class="nav-item nav-link"  href="#">Features</a>
+            <a class="nav-item snav-link" href="#">Pricing</a>
+            <a class="nav-item nav-link" href="#">Disabled</a>
+          </div>
+        </div>
+      </div><!--  row end-->
+    </div><!-- header end-->
+
+<!-- content -->
+    <div class="row" >
+      <!-- fixed row caused by position:fixed -->
+      <div class="col-md-12 a" style="margin-top:135px; float:left;">
+      
+      </div>
+    </div>
+
+<script src="index.js" charset="utf-8"></script>
+  </body>
+</html>
