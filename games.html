@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- logo -->
+    <link rel="icon" type="image/png" href="pics/logo.png"/>
+
+    <title>Gravity falls</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- style -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="games.css">
+
+<!-- animations -->
+<link
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+ />
+ <!-- jquery -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  </head>
+  <body style="background-color:black;">
+    <div style="max-width:100%; height:auto;" class="">
+      <img style="object-fit:cover;    width:100%;height:100%;" src="pics/back.jpg" alt="">
+    </div>
+
+
+    <div class="nav-toggle" >
+      <div class="toggle-botton">
+        <div class="top-left"></div>
+        <div class="top-right"></div>
+        <div class="middle"></div>
+        <div class="bottom-left"></div>
+        <div class="bottom-right"></div>
+      </div>
+  </div>
+
+    <div class="overlay">
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">მთავარი</a></li>
+          <li><a href="tours_hike.html">ტურები/ლაშქრობები</a></li>
+          <li><a class="current" href="games.html">თამაშები</a></li>
+          <li><a href="finances.html">კალკულატორი</a></li>
+          <li><a href="contact.html">კონტაქტი</a></li>
+        </ul>
+      </nav>
+    </div>
+<!--  -->
+<div class="ht">
+
+
+<!--  -->
+<div class="container-fluid">
+<!-- content -->
+    <div class="row" >
+      <!-- fixed row caused by position:fixed -->
+      <!-- created only for fixing purpouse -->
+      <div class="col-md-12 " style="margin-top:135px; float:left;">
+      </div>
+    </div>
+</div>
+
+<!--
+>> გამოიტანოს ფოტო რომელიმე ადგილის
+>> დასვას კითხვა ადგილის შესახებ (კი/არა)
+>> წამზომი უნდა გამოჩნდეს
+>> უნდა გამოჩნდეს პასუხის შესაყვანი
+>> წამზომის გასვლის მერე გამოჩნდეს  გამარჯვება ან წაგება
+
+
+კი მარტივია
+
+
+
+
+ -->
+<h2 style="margin-top:50px;"class='text-center text-primary '>" გამოიცანი ადგილი " -  <span> სწრაფად უპასუხე 10 კითხვას და გამოიცანი</span></h2>
+ <br>
+ <br>
+<!-- start game  -->
+<div class="container-fluid starting">
+  <div class="row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8 text-center">
+      <button type="button" name="button">გინდა დავიწყოთ თამაში?</button>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+  </div>
+
+</div>
+
+<!-- map -->
+<!-- <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 " style="max-width:100%; height:auto;">
+      <img style="object-fit:cover; width:100%;height:100%;" src="pics/back.jpg" alt="">
+    </div>
+  </div>
+</div> -->
+<!-- win/loose content -->
+<div class="container-fluid finish">
+  <div class="row"  >
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8 text-center">
+      <h1 class="win loose"></h1>
+      <button class="again text-center"type="button" name="button">კიდევ გინდა ითამაშო?</button>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+  </div>
+
+</div>
+<!-- win/lose end -->
+<div class="game">
+
+
+<!-- content -->
+<div class="container-fluid  ">
+  <div class="row" >
+    <div class="col-md-1 "></div>
+    <div class="col-md-5  ">
+      <!-- ადგილის ფოტო -->
+      <div class="picture ">
+        <img src="https://metronome.ge/wp-content/uploads/2020/08/%E1%83%9B%E1%83%94%E1%83%A1%E1%83%A2%E1%83%98%E1%83%90-1.jpg" alt="">
+      </div>
+
+    </div>
+    <div class="col-md-5  ">
+      <!-- კითხვა -->
+      <h4 style ="font-size:20px;"class="where  ">აქ ტარდება კარნავალი</h4>
+        <button class="yes btn-success text-center " type="
+        button"  onclick="setValue('yes'), check()"  name="button">კი</button>
+
+        <button class="btn-danger no "type="
+        button" onclick="setValue('no'), check() "name="button">არა</button>
+
+
+    </div>
+    <div class="col-md-1 "></div>
+  </div>
+</div> <!-- container end-->
+
+<div class="container-fluid">
+  <div class="row-fluid "><br>
+    <div class="col-md-1"></div>
+    <div class="col-md-2 text-center ">
+
+<p class="corr"style="color:darkorange;"> სწორია </p>
+    <p class=" text-center correct " >0</p>
+     </div>
+    <div class="col-md-3 text-center">
+<p style="color:darkorange;"> წამზომი </p>
+      <p class=" text-center timer" >0</p>
+
+     </div>
+    <div class="col-md-1 "> </div>
+
+
+    <!-- პასუხის შესაყვანი -->
+    <div class=" col-md-3 ">
+      <input class="answer "type="text"  value="" placeholder="მაგ:ყვარელი">
+    </div>
+    <div class="col-md-2 "> </div>
+
+  </div>
+</div><!-- container end-->
+</div>
+<!-- game ends -->
+</div>
+
+<script src="index.js" charset="utf-8"></script>
+<script src="games.js" charset="utf-8"></script>
+  </body>
+</html>

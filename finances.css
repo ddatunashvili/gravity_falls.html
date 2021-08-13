@@ -1,0 +1,66 @@
+
+
+
+/* choice */
+
+.choice{
+  margin-top:100px;
+  padding:10px;
+  background-color: transparent;
+  font-size:15px;
+  color:white;
+  text-align: center;
+}
+/* chart */
+.equipment, .eat, .road, .entertainment{
+  border-radius: 10px;
+  height:100%;
+}
+/* სათითაოდ */
+.equipment{
+  background-color:#BB8DF5;
+}
+.eat{
+  background-color:#FC9588;
+}
+.road{
+  background-color:#E6CC87;
+}
+.entertainment{
+  background-color:#83E5F2;
+}
+
+
+/* input */
+.input{
+  float:bottom;
+}
+
+
+.pointer{
+  cursor:pointer;
+}
+
+#right{
+  float:right;
+}
+
+@media screen and (min-width :380px){
+  .products{
+
+  }
+}
+
+.sumeverything h3{
+  background-color: grey;
+  color: white;
+}
+.sumeverything button{
+width:100%;
+height:60px;
+
+margin-top:50px;
+margin-bottom:50px;
+background-color:green;
+font-size:15px; 
+}

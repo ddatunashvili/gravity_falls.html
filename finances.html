@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<!--
+>სირთულის ფილტრი [ ng-switch]
+>კატეგორიების pivot table
+:აღჭურვილობა
+:მგზავრობა
+:გართობა
+:კვება
+> შეყვანა ნივთის და ფასის კატეგორიებში -
+გვერდი საჭირო ფინანსები -
+>> პროგრამამ უნდა გიჩვენოს არსებული სხვების
+რეკომენდაციები
+>> პროგრამამ უნდა შემოგთავაზოს ოპტიმიზაციის საჭიროება,
+ძვირია თუ იაფი კატეგორიაში შეყვანილი თანხები
+
+-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- logo -->
+    <link rel="icon" type="image/png" href="pics/logo.png"/>
+
+    <title>Gravity falls</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- style -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="finances.css">
+
+<!-- animations -->
+<link
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+ />
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js "></script>
+ <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  </head>
+  <body style="background-color:black;">
+    <div class="nav-toggle">
+      <div class="toggle-botton">
+        <div class="top-left"></div>
+        <div class="top-right"></div>
+        <div class="middle"></div>
+        <div class="bottom-left"></div>
+        <div class="bottom-right"></div>
+      </div>
+      <div class="img">
+        <img  class="logo d-flex mx-auto"width="205px" height="94.5px"src="pics/logo.png" alt="">
+      </div>
+    </div>
+
+    <div class="overlay">
+      <nav class="main-nav">
+        <ul>
+          <li><a class="current" href="#">მთავარი</a></li>
+          <li><a href="tours_hike.html">ტურები/ლაშქრობები</a></li>
+          <li><a href="games.html">თამაშები</a></li>
+          <li><a href="#">კალკულატორი</a></li>
+          <li><a href="contact.html">კონტაქტი</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+<!-- სირთულის ფილტრი -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4 filter">
+<!-- filter -->
+      <center>
+        <select class="choice" >
+            <option disabled selected > -- აირჩიე სირთულე -- </option>
+            <option class="easy"style="background-color:black; color:#7EFF4F;" value="easy"> მარტივი
+            <option class="medium" style="background-color:black; color: #83E5F2;" value="medium"> საშუალო
+            <option class="hard" style="background-color:black; color: #BB8DF5;"value="hard"> რთული
+        </select>
+      </center>
+    </div>
+    <div class="col-md-4">
+    </div>
+
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<!-- chart -->
+  <div ng-app="prongbang">
+    <div ng-controller="calcPriceController" class="container">
+      <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8 entertainment products">
+          <center>
+          <br>
+            <h3>გართობა</h3>
+          <br>
+          <form ng-submit="add(product)">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>პროდუქტი</th>
+                  <th>რაოდენობა</th>
+                  <th>ფასი</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td ng-bind="products.length+1"></td>
+                  <td><input ng-model="product.name" type="text" class="form-control" required/></td>
+                  <td><input ng-model="product.amount" type="text" class="form-control" required/></td>
+                  <td><input ng-model="product.price" type="text" class="form-control" required/></td>
+                  <td><button class="btn" type="submit">დამატება</button></td>
+                </tr>
+                <tr ng-repeat="p in products">
+                  <td ng-bind="$index+1"></td>
+                  <td ng-bind="p.name"></td>
+                  <td ng-bind="p.amount"></td>
+                  <td ng-bind="p.price"></td>
+                  <td>
+                    <span ng-click="removeItem($index)" class="pointer glyphicon glyphicon-remove" aria-hidden="true"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th colspan="4">ჯამი</th>
+                  <th  id="right"><span ng-bind="total" class="calculat"></span><span> ლარი</span></th>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </center>
+        </div>
+
+        <div class="col-md-2"></div>
+
+      </div>
+    </div><br>
+    <div ng-controller="calcPriceController" class="container">
+      <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8 road products">
+          <center>
+          <br>
+            <h3>მგზავრობა</h3>
+          <br>
+          <form ng-submit="add(product)">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>პროდუქტი</th>
+                  <th>რაოდენობა</th>
+                  <th>ფასი</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td ng-bind="products.length+1"></td>
+                  <td><input ng-model="product.name" type="text" class="form-control" required/></td>
+                  <td><input ng-model="product.amount" type="text" class="form-control" required/></td>
+                  <td><input ng-model="product.price" type="text" class="form-control" required/></td>
+                  <td><button class="btn" type="submit">დამატება</button></td>
+                </tr>
+                <tr ng-repeat="p in products">
+                  <td ng-bind="$index+1"></td>
+                  <td ng-bind="p.name"></td>
+                  <td ng-bind="p.amount"></td>
+                  <td ng-bind="p.price"></td>
+                  <td>
+                    <span ng-click="removeItem($index)" class="pointer glyphicon glyphicon-remove" aria-hidden="true"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th colspan="4">ჯამი</th>
+                  <th id="right"><span ng-bind="total" class="calculat" ></span><span> ლარი</span></th>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </center>
+        </div>
+
+        <div class="col-md-2"></div>
+
+      </div>
+    </div><br>
+    <div ng-controller="calcPriceController" class="container">
+      <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8 eat products">
+          <center>
+          <br>
+            <h3>კვება</h3>
+          <br>
+          <form ng-submit="add(product)">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>პროდუქტი</th>
+                  <th>რაოდენობა</th>
+                  <th>ფასი</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td ng-bind="products.length+1"></td>
+                  <td><input ng-model="product.name" type="text" class="form-control" required/></td>
+                  <td><input ng-model="product.amount" type="text" class="form-control" required/></td>
+                  <td><input ng-model="product.price" type="text" class="form-control" required/></td>
+                  <td><button class="btn" type="submit">დამატება</button></td>
+                </tr>
+                <tr ng-repeat="p in products">
+                  <td ng-bind="$index+1"></td>
+                  <td ng-bind="p.name"></td>
+                  <td ng-bind="p.amount"></td>
+                  <td ng-bind="p.price"></td>
+                  <td>
+                    <span ng-click="removeItem($index)" class="pointer glyphicon glyphicon-remove" aria-hidden="true"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th colspan="4">ჯამი</th>
+                  <th id="right"><span ng-bind="total" class="calculat" ></span><span> ლარი</span></th>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </center>
+        </div>
+
+        <div class="col-md-2"></div>
+
+      </div>
+    </div><br>
+    <div ng-controller="calcPriceController" class="container">
+      <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8 equipment products">
+          <center>
+          <br>
+            <h3>აღჭურვილობა</h3>
+          <br>
+          <form ng-submit="add(product)">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>პროდუქტი</th>
+                  <th>რაოდენობა</th>
+                  <th>ფასი</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td ng-bind="products.length+1"></td>
+                  <td><input ng-model="product.name" type="text" class="form-control" required/></td>
+                  <td><input ng-model="product.amount" type="text" class="form-control" required/></td>
+                  <td><input ng-model="product.price" type="text" class="form-control" required/></td>
+                  <td><button class="btn" type="submit">დამატება</button></td>
+                </tr>
+                <tr ng-repeat="p in products">
+                  <td ng-bind="$index+1"></td>
+                  <td ng-bind="p.name"></td>
+                  <td ng-bind="p.amount"></td>
+                  <td ng-bind="p.price"></td>
+                  <td>
+                    <span ng-click="removeItem($index)" class="pointer glyphicon glyphicon-remove" aria-hidden="true"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th  colspan="4">ჯამი</th>
+                  <th id="right"><span ng-bind="total"   class="calculat"></span><span> ლარი</span></th>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </center>
+        </div>
+
+        <div class="col-md-2"></div>
+
+      </div>
+    </div>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+          <div class="sumeverything">
+            <center>
+            <h3 class="calcu">სულ არის 0 ლარი</h3>
+                <button onClick="calc()" type="button" name="button">დაჯამება</button>
+            </center>
+          </div>
+
+        </div>
+        <div class="col-md-4">
+
+        </div>
+      </div>
+
+    </div>
+
+
+<script src="index.js" charset="utf-8"></script>
+<script src="finances.js" charset="utf-8"></script>
+  </body>
+</html>

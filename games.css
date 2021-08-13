@@ -1,0 +1,127 @@
+
+
+
+/*  ფოტოს სტილი  */
+
+
+.picture{
+  max-width: 100%;
+  height: auto;
+}
+.picture img{
+  border-radius:10px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+/* კითხვა */
+/* responsive */
+@media screen and (min-width: 601px) {
+  .where {
+    font-size: 50px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .where {
+    font-size: 10px;
+  }
+}
+.where{
+  text-align: center;
+  color: darkorange;
+  margin:60px;
+  word-wrap: break-word;
+}
+.yes, .no{
+  font-size: 20px;
+  min-width: 200px;
+  max-width: 100%;
+  min-height: 50px;
+  max-height: 100%;
+  margin: auto;
+  margin-top:10px;
+  display:block;
+  border-radius: 20px;
+}
+
+.answer, .timer,.correct{
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  margin-top: 60px;
+  margin-bottom:  60px;
+  font-size: 20px;
+  background-color: lime;
+  width: 250px;
+  height: 60px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size:20px;
+}
+.answer:focus{
+  outline: none;
+  color:white;
+}
+
+.timer,.correct{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-color:white;
+  border-radius: 50%;
+  color:red;
+  width: 50px;
+  padding: 10px;
+  font-size:25px;
+}
+.correct{
+  background-color: lime;
+  color: black;
+}
+.game{
+  display:none;
+}
+.finish{
+  display:none;
+  justify-content:center;
+  color:white;
+  background-color:green;
+  width:800px;
+  height:50%;
+  border-radius:10px;
+}
+.starting{
+  /* display:none; */
+  margin: 50px;
+}
+.starting button, .again{
+  background-color:darkorange;
+  width:300px;
+  height:50px;
+  border-radius:20px;
+}
+.again{
+  display:block;
+
+}
+.starting button:hover,.again:hover{
+  background-color:green;
+  color:white;
+  border:1px solid blue;
+  box-shadow: 3px 1px 30px 16px rgba(42,230,13,0.75);
+  -webkit-box-shadow: 3px 1px 30px 16px rgba(42,230,13,0.75);
+  -moz-box-shadow: 3px 1px 30px 16px rgba(42,230,13,0.75);
+}
+
+/* animate */
+.right {
+  color:white;
+  background-color:limegreen;
+}
+
+ .wrong {
+  color:black;
+  background-color:red;
+}
